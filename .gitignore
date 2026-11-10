@@ -1,0 +1,7 @@
+# the real configuration and everything read from the router stay local
+config.json
+snapshots/
+
+__pycache__/
+*.pyc
+.venv/

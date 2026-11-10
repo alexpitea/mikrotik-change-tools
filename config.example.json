@@ -1,0 +1,28 @@
+{
+  "router": {
+    "host": "192.0.2.1",
+    "port": 8729,
+    "verify_tls": true
+  },
+  "snapshot_dir": "snapshots",
+  "dhcp_dns": [
+    { "network": "10.0.10.0/24", "new": "10.0.10.53,10.0.10.1", "old": "10.0.10.1,1.1.1.1" },
+    { "network": "10.0.20.0/24", "new": "10.0.10.53,10.0.20.1", "old": "10.0.20.1" }
+  ],
+  "monitoring": {
+    "syslog": {
+      "action_name": "siem",
+      "remote": "10.0.10.53",
+      "port": 514,
+      "src_address": "10.0.10.1",
+      "topics": ["critical,error,warning", "info,!debug,!packet"]
+    },
+    "netflow": {
+      "target": "10.0.10.53",
+      "port": 2055,
+      "interfaces": "vlan10,vlan20",
+      "sampling_interval": 100,
+      "src_address": "10.0.10.1"
+    }
+  }
+}
